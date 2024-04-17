@@ -27,7 +27,7 @@ const MyLink = ({
             {...rest}
             className={[
                 "flex items-center gap-2 rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
-                block && "w-full",
+                block && "w-full justify-center",
                 sizes[size],
                 styles[style],
                 className,
