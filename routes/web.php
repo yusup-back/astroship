@@ -19,6 +19,14 @@ Route::get('/contact', function () {
     return Inertia::render('Contact');
 });
 
+Route::get('/blog', function () {
+    return Inertia::render('Blog');
+});
+
+Route::get('/blog/{slug}', function ($slug) {
+    return Inertia::render('BlogDetails', ['slug' => $slug]);
+});
+
 Route::get('/404', function () {
     return Inertia::render('ErrorPage');
 });

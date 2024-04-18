@@ -14,7 +14,7 @@
     @inertiaHead
 </head>
 
-<body class="font-mono font-semibold antialiased h-screen">
+<body class="font-mono font-semibold antialiased">
     @inertia
 </body>
 
