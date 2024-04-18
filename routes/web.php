@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,6 +18,10 @@ Route::get('/about', function () {
 
 Route::get('/contact', function () {
     return Inertia::render('Contact');
+});
+
+Route::post('/contact', function (Request $request) {
+    return true;
 });
 
 Route::get('/blog', function () {
