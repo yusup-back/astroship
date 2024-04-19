@@ -1,8 +1,7 @@
-import Container from "@/Components/Container";
-import MyLink from "@/Components/Ui/Link";
 import { Link } from "@inertiajs/react";
+import { Menu, X } from "lucide-react";
 import React from "react";
-import SmallNav from "./Small";
+import MyLink from "../Ui/Link";
 
 const menuitems = [
     {
@@ -28,20 +27,26 @@ const menuitems = [
     },
 ];
 
-const Navbar = () => {
+const SmallNav = () => {
     const [menu, setMenu] = React.useState(false);
+    const [nav, setNav] = React.useState(false);
     return (
-        <Container>
-            <header className="flex flex-col lg:flex-row justify-between items-center my-5">
-                {/* Header Logo */}
-                <div className="lg:flex w-full hidden lg:w-auto items-center justify-between">
-                    <Link href="/" className="text-lg">
-                        <span className="font-bold text-slate-800">Astro</span>
-                        <span className="text-slate-500">ship</span>
-                    </Link>
+        <>
+            <div className="flex w-full lg:hidden items-center justify-between">
+                <Link href="/" className="text-lg">
+                    <span className="font-bold text-slate-800">Astro</span>
+                    <span className="text-slate-500">ship</span>
+                </Link>
+                <div onClick={() => setNav(!nav)} className="block lg:hidden">
+                    {nav ? (
+                        <X className="w-4 h-4 text-gray-800" />
+                    ) : (
+                        <Menu className="w-4 h-4 text-gray-800" />
+                    )}
                 </div>
-                <SmallNav />
-                <ul className="lg:flex hidden lg:gap-3">
+            </div>
+            {nav && (
+                <ul className="w-full flex-row gap-3 lg:hidden">
                     {/* Dropdown menu */}
                     <li className="relative">
                         <button
@@ -131,18 +136,9 @@ const Navbar = () => {
                         </MyLink>
                     </div>
                 </ul>
-
-                <div>
-                    <div className="hidden lg:flex items-center gap-4">
-                        <a href="#">Log in</a>
-                        <MyLink href="#" size="md">
-                            Sign up
-                        </MyLink>
-                    </div>
-                </div>
-            </header>
-        </Container>
+            )}
+        </>
     );
 };
 
-export default Navbar;
+export default SmallNav;
